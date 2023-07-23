@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+    <ImageView
+        android:id="@+id/iv_bannerImage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:scaleType="centerCrop"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/end_game_landscape" />
+
+    <TextView
+        android:id="@+id/tv_bannerMovieName"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/margin_medium_2"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="@dimen/margin_large"
+        android:elevation="@dimen/margin_small"
+        android:text="@string/content_banner_movie_name"
+        android:textColor="@color/white"
+        android:textSize="@dimen/text_heading_1x"
+        app:layout_constraintBottom_toBottomOf="@+id/iv_bannerImage"
+        app:layout_constraintEnd_toEndOf="@+id/iv_bannerImage"
+        app:layout_constraintStart_toStartOf="@+id/iv_bannerImage" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btn_play"
+        style="@style/Widget.MaterialComponents.Button.Icon"
+        android:layout_width="@dimen/margin_xxlarge"
+        android:layout_height="@dimen/margin_xxlarge"
+        android:backgroundTint="@color/colorAccent"
+        app:iconPadding="0dp"
+        android:insetLeft="0dp"
+        android:insetTop="0dp"
+        android:insetRight="0dp"
+        android:insetBottom="0dp"
+        app:cornerRadius="@dimen/margin_large"
+        app:icon="@drawable/baseline_play_arrow_24"
+        app:iconSize="@dimen/margin_large"
+        app:iconTint="@color/black"
+        app:layout_constraintBottom_toTopOf="@+id/tv_bannerMovieName"
+        app:layout_constraintEnd_toEndOf="@+id/iv_bannerImage"
+        app:layout_constraintStart_toStartOf="@+id/iv_bannerImage"
+        app:layout_constraintTop_toTopOf="@+id/iv_bannerImage" />
+
+    <View
+        android:id="@+id/v_gradient"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/gradient_banner"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

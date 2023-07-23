@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="@dimen/width_movie_item"
+    android:layout_height="wrap_content"
+    android:background="@android:color/transparent"
+    android:layout_marginStart="@dimen/margin_medium_2">
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/height_movie_item"
+        android:scaleType="centerCrop"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/spiderman_nowayhome" />
+
+    <TextView
+        android:id="@+id/tv_movie_name"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/margin_medium_2"
+        android:text="@string/lbl_spider_man_no_way_home"
+        android:textColor="@color/white"
+        android:textSize="@dimen/text_regular"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView" />
+
+    <TextView
+        android:id="@+id/tv_movie_rating"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/margin_small"
+        android:layout_marginBottom="@dimen/margin_medium"
+        android:text="8.20"
+        android:textColor="@color/white"
+        android:textSize="@dimen/text_small"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/tv_movie_name"
+        app:layout_constraintTop_toBottomOf="@+id/tv_movie_name" />
+
+    <RatingBar
+        android:id="@+id/ratingBar"
+        style="?attr/ratingBarStyleSmall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/margin_medium"
+        android:numStars="5"
+        android:progressTint="@color/colorAccent"
+        android:rating="5"
+        app:layout_constraintBottom_toBottomOf="@+id/tv_movie_rating"
+        app:layout_constraintStart_toEndOf="@+id/tv_movie_rating"
+        app:layout_constraintTop_toTopOf="@+id/tv_movie_rating" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

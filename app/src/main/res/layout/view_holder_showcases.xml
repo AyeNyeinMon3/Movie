@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="@dimen/width_showcases_item"
+    android:layout_height="@dimen/height_showcases_item"
+    android:layout_marginStart="@dimen/margin_medium_2">
+
+
+    <ImageView
+        android:id="@+id/iv_showcase_movie_image"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scaleType="centerCrop"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/blackwidow_landscape" />
+
+    <TextView
+        android:id="@+id/tv_showCases_date"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/margin_medium"
+        android:layout_marginBottom="@dimen/margin_medium"
+        android:text="@string/lbl_showcases_date"
+        android:textColor="@color/colorSecondaryText"
+        android:elevation="@dimen/margin_small"
+        app:layout_constraintBottom_toBottomOf="@+id/iv_showcase_movie_image"
+        app:layout_constraintStart_toStartOf="@+id/iv_showcase_movie_image" />
+
+    <TextView
+        android:id="@+id/tv_showCases_movieName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/lbl_showcase_movieName"
+        android:textColor="@color/white"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:elevation="@dimen/margin_small"
+        app:layout_constraintBottom_toTopOf="@+id/tv_showCases_date"
+        app:layout_constraintStart_toStartOf="@+id/tv_showCases_date" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/colorTransparentOverlay"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btn_play"
+        style="@style/Widget.MaterialComponents.Button.Icon"
+        android:layout_width="@dimen/margin_xxlarge"
+        android:layout_height="@dimen/margin_xxlarge"
+        android:backgroundTint="@color/colorAccent"
+        android:insetLeft="0dp"
+        android:insetTop="0dp"
+        android:insetRight="0dp"
+        android:insetBottom="0dp"
+        app:cornerRadius="@dimen/margin_large"
+        app:icon="@drawable/baseline_play_arrow_24"
+        app:iconPadding="0dp"
+        app:iconSize="@dimen/margin_large"
+        app:iconTint="@color/black"
+        app:layout_constraintBottom_toBottomOf="@+id/iv_showcase_movie_image"
+        app:layout_constraintEnd_toEndOf="@+id/iv_showcase_movie_image"
+        app:layout_constraintStart_toStartOf="@+id/iv_showcase_movie_image"
+        app:layout_constraintTop_toTopOf="@+id/iv_showcase_movie_image" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.example.movie.viewpods.ActorListViewPod xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/ActorListViewPod"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/colorPrimaryDark">
+
+
+    <TextView
+        android:id="@+id/tv_bestActors"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/margin_medium_2"
+        android:layout_marginTop="@dimen/margin_medium_3"
+        android:text="@string/lbl_best_actors"
+        android:textColor="@color/colorSecondaryText"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tv_moreActors"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="@dimen/margin_medium_2"
+        android:text="@string/lbl_more_actors"
+        android:textColor="@color/white"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/tv_bestActors" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rv_actorList"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/margin_small"
+        android:layout_marginBottom="@dimen/margin_medium_3"
+        android:clipToPadding="false"
+        android:orientation="horizontal"
+        android:paddingEnd="@dimen/margin_medium_2"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_bestActors"
+        tools:listitem="@layout/view_holder_actor_list" />
+
+</com.example.movie.viewpods.ActorListViewPod>
