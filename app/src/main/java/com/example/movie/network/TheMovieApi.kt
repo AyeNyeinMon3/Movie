@@ -17,6 +17,7 @@ import com.example.movie.utils.MOVIE_API_KEY
 import com.example.movie.utils.PARAM_API_KEY
 import com.example.movie.utils.PARAM_GENRE_ID
 import com.example.movie.utils.PARAM_PAGE
+import io.reactivex.rxjava3.core.Observable
 import retrofit2.Call
 import retrofit2.http.GET
 import retrofit2.http.Path
@@ -29,50 +30,50 @@ interface TheMovieApi {
         @Query(PARAM_API_KEY) apiKey : String = MOVIE_API_KEY,
         @Query(PARAM_PAGE) page : Int = 1,
 
-    ) : Call<MovieListResponse>
+    ) : Observable<MovieListResponse>
 
     @GET(API_GET_POPULAR)
     fun getPopularMovies(
         @Query(PARAM_API_KEY) apiKey : String = MOVIE_API_KEY,
         @Query(PARAM_PAGE) page: Int = 1
-    ) : Call<MovieListResponse>
+    ) : Observable<MovieListResponse>
 
     @GET(API_GET_TOP_RATED)
     fun getTopRatedMovies(
         @Query(PARAM_API_KEY) apiKey : String = MOVIE_API_KEY,
         @Query(PARAM_PAGE) page: Int = 1
-    ) : Call<MovieListResponse>
+    ) : Observable<MovieListResponse>
 
     @GET(API_GENRE_LIST)
     fun getGenres(
         @Query(PARAM_API_KEY) apiKey : String = MOVIE_API_KEY,
 
-    ) : Call<GetGenreResponse>
+    ) : Observable<GetGenreResponse>
 
     @GET(API_MOVIES_BY_GENRE_ID)
     fun getMoviesByGenreId(
         @Query(PARAM_GENRE_ID) genreId : String,
         @Query(PARAM_API_KEY) apiKey : String = MOVIE_API_KEY,
 
-    ) : Call<MovieListResponse>
+    ) : Observable<MovieListResponse>
 
     @GET(API_POPULAR_ACTORS)
     fun getPopularActors(
         @Query(PARAM_API_KEY) apiKey : String = MOVIE_API_KEY,
         @Query(PARAM_PAGE) page : Int = 1
-    ) : Call<ActorListResponse>
+    ) : Observable<ActorListResponse>
 
     @GET("$API_MOVIE_DETAILS/{movie_id}")
     fun getMovieDetails(
         @Path("movie_id") movieId : String,
         @Query(PARAM_API_KEY) apiKey :String = MOVIE_API_KEY,
 
-    ) : Call<MovieVO>
+    ) : Observable<MovieVO>
 
     @GET("$API_CREDIT_BY_MOVIE/{movie_id}/credits")
     fun getCreditByMovie(
         @Path("movie_id") movieId : String,
         @Query(PARAM_API_KEY) apiKey: String = MOVIE_API_KEY
-    ) : Call<CreditByMovieResponse>
+    ) : Observable<CreditByMovieResponse>
 
 }
