@@ -64,32 +64,23 @@ class MainActivity : AppCompatActivity(),BannerViewHolderDelegate,ShowcaseViewHo
     @SuppressLint("SuspiciousIndentation")
     private fun requestData() {
 
-        mMovieModel.getNowPlayingMovies(
-            onSuccess = {
-                bannerAdapter.setNewData(it)
-            },
-            onFailure = {
-                //Show error message
-            }
-        )
+        mMovieModel.getNowPlayingMovies {
 
-        mMovieModel.getPopularMovies(
-            onSuccess = {
-                bestPopularMovieListViewPod.setData(it)
-            },
-            onFailure = {
+        }?.observe(this) {
+            bannerAdapter.setNewData(it)
+        }
 
-            }
-        )
+        mMovieModel.getPopularMovies{
 
-        mMovieModel.getTopRatedMovies(
-            onSuccess = {
-                showcasesAdapter.setNewData(it)
-            },
-            onFailure = {
+        }?.observe(this){
+            bestPopularMovieListViewPod.setData(it)
+        }
 
-            }
-        )
+        mMovieModel.getTopRatedMovies{
+
+        }?.observe(this){
+            showcasesAdapter.setNewData(it)
+        }
 
         mMovieModel.getGenres(
             onSuccess = {
