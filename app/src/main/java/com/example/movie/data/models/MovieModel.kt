@@ -1,9 +1,11 @@
 package com.example.movie.data.models
 
+import android.database.Observable
 import androidx.lifecycle.LiveData
 import com.example.movie.data.vos.ActorVO
 import com.example.movie.data.vos.GenreVO
 import com.example.movie.data.vos.MovieVO
+import io.reactivex.rxjava3.kotlin.Observables
 
 interface MovieModel {
 
@@ -50,5 +52,9 @@ interface MovieModel {
         onSuccess : (Pair<List<ActorVO>,List<ActorVO>>) -> Unit,
         onFailure: (String) -> Unit
     )
+
+    fun getSearchMovie(
+        query : String
+    ):io.reactivex.rxjava3.core.Observable<List<MovieVO>>
 
 }

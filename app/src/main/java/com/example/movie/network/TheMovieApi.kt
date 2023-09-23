@@ -13,10 +13,12 @@ import com.example.movie.utils.API_GET_TOP_RATED
 import com.example.movie.utils.API_MOVIES_BY_GENRE_ID
 import com.example.movie.utils.API_MOVIE_DETAILS
 import com.example.movie.utils.API_POPULAR_ACTORS
+import com.example.movie.utils.API_SEARCH_MOVIE
 import com.example.movie.utils.MOVIE_API_KEY
 import com.example.movie.utils.PARAM_API_KEY
 import com.example.movie.utils.PARAM_GENRE_ID
 import com.example.movie.utils.PARAM_PAGE
+import com.example.movie.utils.PARAM_QUERY
 import io.reactivex.rxjava3.core.Observable
 import retrofit2.Call
 import retrofit2.http.GET
@@ -75,5 +77,11 @@ interface TheMovieApi {
         @Path("movie_id") movieId : String,
         @Query(PARAM_API_KEY) apiKey: String = MOVIE_API_KEY
     ) : Observable<CreditByMovieResponse>
+
+    @GET(API_SEARCH_MOVIE)
+    fun getSearchMovie(
+        @Query(PARAM_API_KEY) apiKey: String = MOVIE_API_KEY,
+        @Query(PARAM_QUERY) query : String
+    ): Observable<MovieListResponse>
 
 }

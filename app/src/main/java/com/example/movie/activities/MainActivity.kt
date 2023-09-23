@@ -8,7 +8,9 @@ import android.media.midi.MidiOutputPort
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.Menu
+import android.view.MenuItem
 import android.widget.Toast
+import androidx.core.view.get
 import com.example.movie.R
 import com.example.movie.adapter.BannerAdapter
 import com.example.movie.adapter.ShowcasesAdapter
@@ -185,11 +187,21 @@ class MainActivity : AppCompatActivity(),BannerViewHolderDelegate,ShowcaseViewHo
         setSupportActionBar(binding.toolBar)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
         supportActionBar?.setHomeAsUpIndicator(R.drawable.ic_menu)
+
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
        super.onCreateOptionsMenu(menu)
         menuInflater.inflate(R.menu.menu_toolbar,menu)
+        return true
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+
+        if (item.itemId == R.id.search){
+            startActivity(MovieSearchActivity.newIntent(this))
+
+        }
         return true
     }
 

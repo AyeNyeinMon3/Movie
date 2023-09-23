@@ -2,6 +2,7 @@ package com.example.movie.data.models
 
 import android.annotation.SuppressLint
 import android.content.Context
+import android.database.Observable
 import androidx.lifecycle.LiveData
 import com.example.movie.data.vos.ActorVO
 import com.example.movie.data.vos.GenreVO
@@ -12,6 +13,7 @@ import com.example.movie.utils.NOW_PLAYING
 import com.example.movie.utils.POPULAR_MOVIES
 import com.example.movie.utils.TOP_RATED_MOVIES
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
+import io.reactivex.rxjava3.kotlin.Observables
 import io.reactivex.rxjava3.schedulers.Schedulers
 
 object MovieModelImpl : MovieModel,BaseModel() {
@@ -211,5 +213,13 @@ object MovieModelImpl : MovieModel,BaseModel() {
            },{
                onFailure(it.localizedMessage ?: "")
            })
+    }
+
+    override fun getSearchMovie(query: String): io.reactivex.rxjava3.core.Observable<List<MovieVO>> {
+        return mMovieApi
+            .getSearchMovie(query = query)
+            .map { it.results ?: listOf() }
+            .onErrorResumeNext { io.reactivex.rxjava3.core.Observable.just(listOf())}
+            .subscribeOn(Schedulers.io())
     }
 }

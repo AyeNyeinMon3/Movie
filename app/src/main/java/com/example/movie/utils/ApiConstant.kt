@@ -17,10 +17,13 @@ const val API_MOVIE_DETAILS = "/3/movie"
 
 const val API_CREDIT_BY_MOVIE = "/3/movie"
 
+const val API_SEARCH_MOVIE = "/3/search/movie"
+
 //Params
 const val PARAM_API_KEY = "api_key"
 const val PARAM_PAGE = "page"
 const val PARAM_GENRE_ID= "with_genres"
+const val PARAM_QUERY = "query"
 
 const val NOW_PLAYING = "now_playing"
 const val POPULAR_MOVIES = "popular_movies"
